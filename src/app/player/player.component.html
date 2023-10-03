@@ -1,0 +1,25 @@
+<div>
+  <Title title="Doodler" page="" />
+  {connected && component === PlayerComponent.JoinGame && (
+  <JoinGame action="{joinGame}" />
+  )} {connected && component === PlayerComponent.CreateAssignmentDoodle && (
+  <CreateAssignmentDoodle
+    action="{submitAssignmentDoodle}"
+    assignment="{doodleAssignment}"
+  />
+  )} {connected && component === PlayerComponent.WaitingForOtherPlayers && (
+  <div className="h-screen">
+    <div className="flex items-center justify-center">
+      sit back and relax while the others guess!
+    </div>
+  </div>
+  )} {connected && component === PlayerComponent.PlayersFirstGuess && (
+  <div className="h-screen">
+    <PlayersFirstGuess submitGuess="{submitFirstGuess}" />
+  </div>
+  )} {connected && component === PlayerComponent.PlayersSecondGuess && (
+  <div className="h-screen">
+    <PlayersSecondGuess submitGuess="{submitSecondGuess}" options="{options}" />
+  </div>
+  )}
+</div>
